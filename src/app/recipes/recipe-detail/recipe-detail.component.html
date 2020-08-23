@@ -1,0 +1,61 @@
+<ng-container *ngIf="recipeDetailData">
+  <div class="row">
+    <div class="col-xs-12">
+      <img
+        [src]="recipeDetailData.imagePath"
+        [alt]="recipeDetailData.name"
+        class="img-responsive"
+        style="max-height: 300px;"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{ recipeDetailData.name }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div appDropdown class="btn-group">
+        <button class="btn btn-primary dropdown-toggle">
+          manage recipe <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a style="cursor: pointer;" (click)="addIngredientsTOShoppingList()"
+              >Add to shopping list</a
+            >
+          </li>
+          <li>
+            <a style="cursor: pointer;" (click)="onEditRecipeClick()"
+              >edit recipe</a
+            >
+          </li>
+          <li>
+            <a style="cursor: pointer;" (click)="onDeleteRecipe()"
+              >delete recipe</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">{{ recipeDetailData.description }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let item of recipeDetailData.ingredients"
+        >
+          {{ item.name }} ({{ item.amount }})
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="!recipeDetailData">
+  <h3>please click a recipe</h3>
+</ng-container>
