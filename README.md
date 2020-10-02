@@ -29,3 +29,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Deployed on firebase 
 
 https://recipe-app-6c5e1.web.app/auth
+##basic pull request
+@harsh
